@@ -21,7 +21,7 @@
         }
         .container { 
             width: 100%;
-            max-width: 450px; 
+            max-width: 480px; 
             background: #ffffff;
             padding: 25px;
             border-radius: 12px;
@@ -38,7 +38,7 @@
         .header-banner h1 { font-size: 22px; margin-bottom: 5px; }
         .header-banner p { font-size: 14px; opacity: 0.9; }
         
-        h2 { text-align: center; margin-bottom: 20px; color: #1e293b; font-size: 20px;}
+        h2 { text-align: center; margin: 20px 0 15px 0; color: #1e293b; font-size: 18px; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px;}
         .form-group { margin-bottom: 15px; }
         label { display: block; margin-bottom: 6px; font-weight: bold; color: #475569; font-size: 14px;}
         input { 
@@ -76,27 +76,34 @@
             font-weight: bold;
         }
 
-        .product-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 12px;
+        .product-list { 
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             margin-bottom: 20px;
         }
         .prod-card { 
             background: #f8fafc; 
             padding: 12px;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            text-align: center;
+            border-left: 4px solid #1e3a8a;
+            border-top: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            border-radius: 0 8px 8px 0;
         }
-        .prod-card strong { color: #1e3a8a; display: block; margin-bottom: 4px; }
-        .prod-card p { font-size: 14px; color: #64748b; }
+        .prod-card strong { color: #1e3a8a; display: block; margin-bottom: 4px; font-size: 16px; }
+        .prod-card p { font-size: 13px; color: #64748b; line-height: 1.4; }
         
-        .table-container { width: 100%; overflow-x: auto; margin-top: 15px;}
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px;}
-        th, td { padding: 10px; border: 1px solid #e2e8f0; text-align: left; }
-        th { background-color: #1e3a8a; color: white; }
-        tr:nth-child(even) { background-color: #f8fafc; }
+        .info-footer {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #475569;
+            margin-top: 20px;
+            border: 1px dashed #cbd5e1;
+        }
+        .info-footer p { margin-bottom: 5px; }
     </style>
 </head>
 <body>
@@ -110,16 +117,15 @@
         <p>केवळ ॲडमिन लॉगिन (Admin Only)</p>
       </div>
       
-      <!-- एरर मेसेज -->
       <div id="errorBox" class="error-msg">चुकीचे युझरनाव किंवा पासवर्ड!</div>
 
       <form id="loginForm" onsubmit="handleAdminLogin(event)">
         <div class="form-group">
-          <label for="username">ॲडमिन युझरनाव (Admin Username):</label>
+          <label for="username">ॲडमिन युझरनाव:</label>
           <input type="text" id="username" required placeholder="युझरनाव टाका">
         </div>
         <div class="form-group">
-          <label for="password">पासवर्ड (Password):</label>
+          <label for="password">पासवर्ड:</label>
           <input type="password" id="password" required placeholder="पासवर्ड टाका">
         </div>
         <button type="submit">ॲडमिन लॉगिन</button>
@@ -133,41 +139,39 @@
         <p>स्वागत आहे, मुख्य ॲडमिन!</p>
       </div>
       
-      <h2>उत्पादने व्यवस्थापन</h2>
-      <div class="product-grid">
+      <h2>आमची उत्पादने (VTC Products List)</h2>
+      <div class="product-list">
+        
         <div class="prod-card">
-          <strong>उत्पादन अ</strong>
-          <p>किंमत: ₹५००</p>
+          <strong>१. कॉटन कापड (चिंधी वेस्ट)</strong>
+          <p>उच्च प्रतीचे कॉटन कापड जे औद्योगिक वापरासाठी उत्तम आहे. मोठ्या प्रमाणात पुरवठा व वेळेवर डिलिव्हरी.</p>
         </div>
+
         <div class="prod-card">
-          <strong>उत्पादन ब</strong>
-          <p>किंमत: ₹१,२००</p>
+          <strong>२. होशारी (HOSIERY)</strong>
+          <p>मऊ, शोषक व बहुउपयोगी कापड. स्वच्छतेसाठी अत्यंत उपयुक्त.</p>
         </div>
+
+        <div class="prod-card">
+          <strong>३. टी शर्ट (T SHIRT)</strong>
+          <p>उच्च शोषकता असलेले कापड, सर्वसाधारण स्वच्छतेसाठी उत्तम.</p>
+        </div>
+
+        <div class="prod-card">
+          <strong>४. व्हाईट होशारी (WHITE HOSIERY)</strong>
+          <p>स्वच्छ, लिट-फ्री व नाजूक पृष्ठभाग स्वच्छतेसाठी पूर्णपणे योग्य.</p>
+        </div>
+
+        <div class="prod-card">
+          <strong>५. हेवी / जाड होशारी (मोठा होशारी)</strong>
+          <p>अतिशय मजबूत व टिकाऊ, जड औद्योगिक वापरासाठी सर्वोत्तम कापड.</p>
+        </div>
+
       </div>
 
-      <h2>सर्व अलीकडील व्यवहार</h2>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>आयडी</th>
-              <th>तपशील</th>
-              <th>स्थिती</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>#१०१</td>
-              <td>किराणा माल खरेदी</td>
-              <td style="color: green; font-weight: bold;">यशस्वी</td>
-            </tr>
-            <tr>
-              <td>#१०२</td>
-              <td>अनामत रक्कम</td>
-              <td style="color: green; font-weight: bold;">यशस्वी</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="info-footer">
+        <p><strong>संपर्क क्रमांक:</strong> 8446581915 / 7507270171</p>
+        <p><strong>पत्ता:</strong> छत्रपती शिवाजी नगर, लाकूड पेठ, जळगाव - 425001</p>
       </div>
 
       <button class="logout-btn" onclick="handleLogout()">लॉगआउट करा</button>
@@ -176,7 +180,6 @@
   </div>
 
   <script>
-    // यहाँ आप अपना मनपसंद एडमिन यूजरनेम और पासवर्ड सेट कर सकते हैं
     const ADMIN_USERNAME = "admin";
     const ADMIN_PASSWORD = "vtc@admin2026";
 
@@ -187,13 +190,11 @@
       const passwordInput = document.getElementById('password').value.trim();
       const errorBox = document.getElementById('errorBox');
 
-      // केवल एडमिन क्रेडेंशियल्स की जांच
       if (userInput === ADMIN_USERNAME && passwordInput === ADMIN_PASSWORD) {
         errorBox.style.display = 'none';
         document.getElementById('login-section').style.display = 'none';
         document.getElementById('dashboardSection').style.display = 'block';
       } else {
-        // गलत पासवर्ड होने पर एरर दिखाएं
         errorBox.style.display = 'block';
       }
     }
@@ -205,5 +206,4 @@
     }
   </script>
 </body>
-            </html>
-            
+</html>
