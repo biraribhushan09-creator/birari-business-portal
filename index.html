@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>विजया ट्रेडिंग कंपनी (VTC) - पोर्टल</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #f1f5f9; color: #1e293b; padding: 15px; }
+        .header-banner { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: white; text-align: center; padding: 25px 15px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .header-banner h1 { font-size: 26px; color: #f59e0b; }
+        .header-banner p { font-size: 14px; margin-top: 5px; opacity: 0.9; }
+        .container { max-width: 450px; margin: 30px auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h2 { text-align: center; margin-bottom: 20px; color: #1e3a8a; font-size: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+        input, select { width: 100%; padding: 11px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; }
+        button { width: 100%; padding: 12px; background: #1e3a8a; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 10px; transition: 0.2s; }
+        button:hover { background: #1d4ed8; }
+        .dashboard { display: none; max-width: 700px; margin: 10px auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .logout-btn { background: #ef4444; width: auto; float: right; padding: 6px 15px; font-size: 13px; margin-top: 0; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .prod-card { background: #f8fafc; padding: 12px; border-radius: 6px; border-left: 4px solid #f59e0b; font-size: 13px; }
+        .prod-card strong { color: #1e3a8a; display: block; margin-bottom: 3px; }
+        .table-container { width: 100%; overflow-x: auto; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th, td { padding: 10px; border: 1px solid #e2e8f0; text-align: left; }
+        th { background: #1e3a8a; color: white; }
+        .status-p { color: #d97706; font-weight: bold; }
+        .status-c { color: #16a34a; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <!-- कंपनीचा मेन ब्रँड बॅनर -->
+    <div class="header-banner">
+        <h1>VIJAYA TRADING COMPANY</h1>
+        <p>गुणवत्ता आमची ओळख, स्वच्छता तुमची ताकद! (जळगाव)</p>
+    </div>
+
+    <!-- लॉगिन स्क्रीन -->
+    <div class="container" id="loginScreen">
+        <h2>VTC ग्राहक व ॲडमीन पोर्टल</h2>
+        <div class="form-group">
+            <label>युझरनेम / मोबाईल नंबर</label>
+            <input type="text" id="username" placeholder="तुमचा नंबर किंवा युझरनेम टाका">
+        </div>
+        <div class="form-group">
+            <label>पासवर्ड</label>
+            <input type="password" id="password" placeholder="पासवर्ड टाका">
+        </div>
+        <div class="form-group">
+            <label>लॉगिन टाईप निवडा</label>
+            <select id="role">
+                <option value="user">Customer (ग्राहक / कंपनी / गॅरेज)</option>
+                <option value="admin">Admin (भूषण भाई - मालक)</option>
+            </select>
+        </div>
+        <button onclick="login()">लॉगिन करा</button>
+    </div>
+
+    <!-- ग्राहक डॅशबोर्ड (User Dashboard) -->
+    <div class="dashboard" id="userDashboard">
+        <button class="logout-btn" onclick="logout()">लॉगआऊट</button>
+        <h2>ग्राहक पॅनेल (Customer Portal)</h2>
+        <p style="margin-bottom: 15px;">आमची उत्पादने (व्हरायटी):</p>
+        
+        <div class="product-grid">
+            <div class="prod-card"><strong>१. कॉटन कापड (चिंधी वेस्ट)</strong>औद्योगिक वापरासाठी उच्च प्रतीचे</div>
+            <div class="prod-card"><strong>२. होशारी (Hosiery)</strong>मऊ, शोषक व बहुउपयोगी</div>
+            <div class="prod-card"><strong>३. टी शर्ट (T-Shirt)</strong>उच्च शोषकता, स्वच्छतेसाठी उत्तम</div>
+            <div class="prod-card"><strong>४. हेवी / जाड होशारी</strong>अतिशय मजबूत व टिकाऊ वेस्ट</div>
+        </div>
+
+        <div style="margin-top: 25px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+            <h3>नवीन ऑर्डर नोंदवा</h3>
+            <div class="form-group" style="margin-top: 10px;">
+                <label>माल निवडा</label>
+                <select id="orderItem">
+                    <option>कॉटन कापड (चिंधी वेस्ट)</option>
+                    <option>होशारी (Hosiery) वेस्ट</option>
+                    <option>टी शर्ट (T-Shirt) वेस्ट</option>
+                    <option>हेवी / जाड होशारी</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>नगाची संख्या / वजन (उदा. ५० किलो, २ गोणी)</label>
+                <input type="text" id="orderQty" placeholder="वजन किंवा नग लिहा">
+            </div>
+            <button onclick="alert('तुमची ऑर्डर विजया ट्रेडिंग कंपनीकडे यशस्वीरित्या नोंदवली गेली आहे!')" style="background: #f59e0b; color: #0f172a;">ऑर्डर सबमिट करा</button>
+        </div>
+    </div>
+
+    <!-- ॲडमीन डॅशबोर्ड (Admin Dashboard) -->
+    <div class="dashboard" id="adminDashboard">
+        <button class="logout-btn" onclick="logout()">लॉगआऊट</button>
+        <h2>ॲडमीन कंट्रोल पॅनेल (भूषण भाई)</h2>
+        <p>तुमच्या बिझनेसच्या सर्व ऑर्डर्स खालीलप्रमाणे आहेत:</p>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ग्राहक / कंपनीचे नाव</th>
+                        <th>पत्ता / गाव</th>
+                        <th>मागवलेला माल (ऑर्डर)</th>
+                        <th>स्टेटस</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>साई ऑटो गॅरेज</td>
+                        <td>शिवाजी नगर, जळगाव</td>
+                        <td>होशारी वेस्ट - २० किलो</td>
+                        <td><span class="status-p">Pending (बाकी आहे)</span></td>
+                    </tr>
+                    <tr>
+                        <td>M.I.D.C. इंजिनिअरिंग</td>
+                        <td>सेक्टर एल, जळगाव</td>
+                        <td>कॉटन चिंधी - ५ गोणी</td>
+                        <td><span class="status-c">Delivered (पोहोचला)</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var user = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+            var role = document.getElementById("role").value;
+
+            if(user === "") { alert("कृपया युझरनेम टाका"); return; }
+            if(pass === "") { alert("कृपया पासवर्ड टाका"); return; }
+
+            document.getElementById("loginScreen").style.display = "none";
+
+            if (role === "admin") {
+                document.getElementById("adminDashboard").style.display = "block";
+            } else {
+                document.getElementById("userDashboard").style.display = "block";
+            }
+        }
+
+        function logout() {
+            document.getElementById("userDashboard").style.display = "none";
+            document.getElementById("adminDashboard").style.display = "none";
+            document.getElementById("loginScreen").style.display = "block";
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        }
+    </script>
+</body>
+  </html>
+  
