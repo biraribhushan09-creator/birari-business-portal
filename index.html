@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>विजया ट्रेडिंग कंपनी (VTC) - एडमिन पोर्टल</title>
+    <title>विजया ट्रेडिंग कंपनी (VTC)</title>
     <style>
         * { 
             box-sizing: border-box; 
@@ -39,43 +39,7 @@
         .header-banner p { font-size: 14px; opacity: 0.9; }
         
         h2 { text-align: center; margin: 20px 0 15px 0; color: #1e293b; font-size: 18px; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px;}
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 6px; font-weight: bold; color: #475569; font-size: 14px;}
-        input { 
-            width: 100%; 
-            padding: 10px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            font-size: 15px;
-        }
-        button { 
-            width: 100%; 
-            padding: 12px;
-            background: #1e3a8a;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
-        button:hover { background: #1d4ed8; }
         
-        .dashboard { display: none; }
-        .logout-btn { background: #ef4444; margin-top: 20px; }
-        .logout-btn:hover { background: #dc2626; }
-        
-        .error-msg {
-            color: #ef4444;
-            font-size: 14px;
-            text-align: center;
-            margin-bottom: 15px;
-            display: none;
-            font-weight: bold;
-        }
-
         .product-list { 
             display: flex;
             flex-direction: column;
@@ -95,115 +59,80 @@
         .prod-card p { font-size: 13px; color: #64748b; line-height: 1.4; }
         
         .info-footer {
-            background: #f8fafc;
-            padding: 12px;
+            background: #eff6ff;
+            padding: 15px;
             border-radius: 8px;
-            font-size: 12px;
-            color: #475569;
+            font-size: 14px;
+            color: #1e3a8a;
             margin-top: 20px;
-            border: 1px dashed #cbd5e1;
+            border: 1px solid #bfdbfe;
         }
-        .info-footer p { margin-bottom: 5px; }
+        .info-footer p { margin-bottom: 8px; }
+        .call-btn {
+            display: block;
+            text-align: center;
+            background: #2563eb;
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        .call-btn:hover {
+            background: #1d4ed8;
+        }
     </style>
 </head>
 <body>
 
   <div class="container">
     
-    <!-- एडमिन लॉगिन सेक्शन -->
-    <div id="login-section">
-      <div class="header-banner">
-        <h1>विजया ट्रेडिंग कंपनी (VTC)</h1>
-        <p>केवळ ॲडमिन लॉगिन (Admin Only)</p>
-      </div>
+    <!-- कंपनी हेडर बैनर -->
+    <div class="header-banner">
+      <h1>विजया ट्रेडिंग कंपनी (VTC)</h1>
+      <p>गुणवत्ता आमची ओळख, स्वच्छता तुमची ताकद</p>
+    </div>
+    
+    <h2>आमची उत्पादने (VTC Products)</h2>
+    <div class="product-list">
       
-      <div id="errorBox" class="error-msg">चुकीचे युझरनाव किंवा पासवर्ड!</div>
+      <div class="prod-card">
+        <strong>१. कॉटन कापड (चिंधी वेस्ट)</strong>
+        <p>उच्च प्रतीचे कॉटन कापड जे औद्योगिक वापरासाठी उत्तम आहे. मोठ्या प्रमाणात पुरवठा व वेळेवर डिलिव्हरी.</p>
+      </div>
 
-      <form id="loginForm" onsubmit="handleAdminLogin(event)">
-        <div class="form-group">
-          <label for="username">ॲडमिन युझरनाव:</label>
-          <input type="text" id="username" required placeholder="युझरनाव टाका">
-        </div>
-        <div class="form-group">
-          <label for="password">पासवर्ड:</label>
-          <input type="password" id="password" required placeholder="पासवर्ड टाका">
-        </div>
-        <button type="submit">ॲडमिन लॉगिन</button>
-      </form>
+      <div class="prod-card">
+        <strong>२. होशारी (HOSIERY)</strong>
+        <p>मऊ, शोषक व बहुउपयोगी कापड. स्वच्छतेसाठी अत्यंत उपयुक्त.</p>
+      </div>
+
+      <div class="prod-card">
+        <strong>३. टी शर्ट (T SHIRT)</strong>
+        <p>उच्च शोषकता असलेले कापड, सर्वसाधारण स्वच्छतेसाठी उत्तम.</p>
+      </div>
+
+      <div class="prod-card">
+        <strong>४. व्हाईट होशारी (WHITE HOSIERY)</strong>
+        <p>स्वच्छ, लिट-फ्री व नाजूक पृष्ठभाग स्वच्छतेसाठी पूर्णपणे योग्य.</p>
+      </div>
+
+      <div class="prod-card">
+        <strong>५. हेवी / जाड होशारी (मोठा होशारी)</strong>
+        <p>अतिशय मजबूत व टिकाऊ, जड औद्योगिक वापरासाठी सर्वोत्तम कापड.</p>
+      </div>
+
     </div>
 
-    <!-- एडमिन डॅशबोर्ड सेक्शन -->
-    <div class="dashboard" id="dashboardSection">
-      <div class="header-banner">
-        <h1>VTC ॲडमिन डॅशबोर्ड</h1>
-        <p>स्वागत आहे, मुख्य ॲडमिन!</p>
-      </div>
-      
-      <h2>आमची उत्पादने (VTC Products List)</h2>
-      <div class="product-list">
-        
-        <div class="prod-card">
-          <strong>१. कॉटन कापड (चिंधी वेस्ट)</strong>
-          <p>उच्च प्रतीचे कॉटन कापड जे औद्योगिक वापरासाठी उत्तम आहे. मोठ्या प्रमाणात पुरवठा व वेळेवर डिलिव्हरी.</p>
-        </div>
-
-        <div class="prod-card">
-          <strong>२. होशारी (HOSIERY)</strong>
-          <p>मऊ, शोषक व बहुउपयोगी कापड. स्वच्छतेसाठी अत्यंत उपयुक्त.</p>
-        </div>
-
-        <div class="prod-card">
-          <strong>३. टी शर्ट (T SHIRT)</strong>
-          <p>उच्च शोषकता असलेले कापड, सर्वसाधारण स्वच्छतेसाठी उत्तम.</p>
-        </div>
-
-        <div class="prod-card">
-          <strong>४. व्हाईट होशारी (WHITE HOSIERY)</strong>
-          <p>स्वच्छ, लिट-फ्री व नाजूक पृष्ठभाग स्वच्छतेसाठी पूर्णपणे योग्य.</p>
-        </div>
-
-        <div class="prod-card">
-          <strong>५. हेवी / जाड होशारी (मोठा होशारी)</strong>
-          <p>अतिशय मजबूत व टिकाऊ, जड औद्योगिक वापरासाठी सर्वोत्तम कापड.</p>
-        </div>
-
-      </div>
-
-      <div class="info-footer">
-        <p><strong>संपर्क क्रमांक:</strong> 8446581915 / 7507270171</p>
-        <p><strong>पत्ता:</strong> छत्रपती शिवाजी नगर, लाकूड पेठ, जळगाव - 425001</p>
-      </div>
-
-      <button class="logout-btn" onclick="handleLogout()">लॉगआउट करा</button>
+    <!-- संपर्क और डायरेक्ट कॉल बटन -->
+    <div class="info-footer">
+      <p><strong>पत्ता:</strong> छत्रपती शिवाजी नगर, लाकूड पेठ, जळगाव - 425001</p>
+      <p><strong>संपर्क क्रमांक:</strong> 8446581915 / 7507270171</p>
+      <a href="tel:8446581915" class="call-btn">📞 थेट संपर्क करा / ऑर्डर करा</a>
     </div>
 
   </div>
 
-  <script>
-    const ADMIN_USERNAME = "admin";
-    const ADMIN_PASSWORD = "vtc@admin2026";
-
-    function handleAdminLogin(event) {
-      event.preventDefault();
-      
-      const userInput = document.getElementById('username').value.trim();
-      const passwordInput = document.getElementById('password').value.trim();
-      const errorBox = document.getElementById('errorBox');
-
-      if (userInput === ADMIN_USERNAME && passwordInput === ADMIN_PASSWORD) {
-        errorBox.style.display = 'none';
-        document.getElementById('login-section').style.display = 'none';
-        document.getElementById('dashboardSection').style.display = 'block';
-      } else {
-        errorBox.style.display = 'block';
-      }
-    }
-
-    function handleLogout() {
-      document.getElementById('dashboardSection').style.display = 'none';
-      document.getElementById('login-section').style.display = 'block';
-      document.getElementById('loginForm').reset();
-    }
-  </script>
 </body>
 </html>
